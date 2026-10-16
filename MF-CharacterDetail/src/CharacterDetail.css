@@ -1,0 +1,241 @@
+.cd-root {
+    --cd-bg-card: #ffffff;
+    --cd-border: #e5e7eb;
+    --cd-text: #111827;
+    --cd-muted: #6b7280;
+    --cd-accent: #16a34a;
+    --cd-radius: 12px;
+
+    color: var(--cd-text);
+    padding: 24px 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cd-btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: var(--cd-accent);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cd-btn--ghost {
+    background: transparent;
+    color: var(--cd-text);
+    border: 1px solid var(--cd-border);
+}
+
+.cd-back {
+    margin-bottom: 20px;
+}
+
+
+.cd-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+@media (min-width: 900px) {
+    .cd-layout {
+        grid-template-columns: 380px 1fr;
+    }
+}
+
+.cd-info {
+    background: var(--cd-bg-card);
+    border: 1px solid var(--cd-border);
+    border-radius: var(--cd-radius);
+    overflow: hidden;
+}
+
+.cd-info__img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+}
+
+.cd-info__body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cd-info__name {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.cd-info__list {
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.cd-info__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--cd-border);
+    font-size: 0.9rem;
+}
+
+.cd-info__item:last-child {
+    border-bottom: none;
+}
+
+.cd-info__item dt {
+    color: var(--cd-muted);
+}
+
+.cd-info__item dd {
+    margin: 0;
+    font-weight: 500;
+    text-align: right;
+}
+
+
+.cd-status {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.cd-status::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.cd-status--alive {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+.cd-status--dead {
+    color: #b91c1c;
+    background: #fee2e2;
+}
+
+.cd-status--unknown {
+    color: #4b5563;
+    background: #f3f4f6;
+}
+
+
+.cd-episodes {
+    background: var(--cd-bg-card);
+    border: 1px solid var(--cd-border);
+    border-radius: var(--cd-radius);
+    padding: 20px;
+}
+
+.cd-episodes__title {
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cd-episodes__count {
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #f3f4f6;
+    color: var(--cd-muted);
+}
+
+.cd-episodes__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.cd-episode {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid var(--cd-border);
+    border-radius: 8px;
+}
+
+.cd-episode__code {
+    flex-shrink: 0;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: ui-monospace, monospace;
+}
+
+.cd-episode__name {
+    margin: 0;
+    font-weight: 500;
+}
+
+.cd-episode__date {
+    margin: 2px 0 0;
+    font-size: 0.8rem;
+    color: var(--cd-muted);
+}
+
+.cd-episodes__empty {
+    color: var(--cd-muted);
+    margin: 0;
+}
+
+.cd-episodes__error {
+    color: #b91c1c;
+    margin: 0;
+}
+
+
+.cd-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 48px 16px;
+    color: var(--cd-muted);
+    text-align: center;
+}
+
+.cd-state--error {
+    color: #b91c1c;
+}
+
+.cd-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--cd-border);
+    border-top-color: var(--cd-accent);
+    border-radius: 50%;
+    animation: cd-spin 0.8s linear infinite;
+}
+
+@keyframes cd-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
